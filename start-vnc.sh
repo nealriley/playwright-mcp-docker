@@ -10,5 +10,6 @@ x11vnc -display "$DISPLAY" -forever -nopw -shared -rfbport 5900 &
 # Start noVNC
 websockify --web=/usr/share/novnc/ "$NOVNC_PORT" localhost:5900 &
 
-wait -n
+# Wait for all background VNC processes
+wait
 
