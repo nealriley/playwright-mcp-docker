@@ -2,7 +2,7 @@
 set -e
 
 # Start VNC and desktop
-/start-vnc.sh &
+/usr/local/bin/start-vnc.sh &
 
 # Give the virtual display some time to start
 sleep 2

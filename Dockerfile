@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/playwright:v1.42.1-jammy
 
+ENV DEBIAN_FRONTEND noninteractive
+
 # Install packages for VNC and desktop environment
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
