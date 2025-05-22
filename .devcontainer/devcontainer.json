@@ -9,14 +9,14 @@
   "postCreateCommand": "docker build -t myapp-image ..",
 
   // 3) Every time the codespace starts, run your image exposing the two ports
-  "postStartCommand": "docker rm -f myapp || true && docker run -d --name myapp -p 6082:6082 -p 3333:3333 myapp-image",
+  "postStartCommand": "docker run --name myapp -p 6082:6082 -p 3333:3333 myapp-image",
 
   // 4) Tell Codespaces to forward these ports into the UI
-  "forwardPorts": [6082, 3333],
+  "forwardPorts": [6080, 3333],
 
   // 5) Make the ports publicly visible, and auto-open port 6082 in the browser
   "portsAttributes": {
-    "6082": {
+    "6080": {
       "label": "VNC",
       "protocol": "http",
       "visibility": "public",
