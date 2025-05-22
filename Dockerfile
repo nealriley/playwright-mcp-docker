@@ -1,4 +1,4 @@
-FROM node:22-bookworm
+FROM mcr.microsoft.com/playwright:v1.52.0-jammy
 
 ENV DEBIAN_FRONTEND noninteractive
 
