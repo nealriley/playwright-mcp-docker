@@ -1,0 +1,32 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "PlayWright MCP Docker",
+
+  // 1) Build the codespace container from your repo's Dockerfile
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+
+  // 2) After the container is created, build your app image
+  "postCreateCommand": "docker build -t myapp-image ..",
+
+  // 3) Every time the codespace starts, run your image exposing the two ports
+  "postStartCommand": "docker rm -f myapp || true && docker run -d --name myapp -p 6082:6082 -p 3333:3333 myapp-image",
+
+  // 4) Tell Codespaces to forward these ports into the UI
+  "forwardPorts": [6082, 3333],
+
+  // 5) Make the ports publicly visible, and auto-open port 6082 in the browser
+  "portsAttributes": {
+    "6082": {
+      "label": "VNC",
+      "protocol": "http",
+      "visibility": "public",
+      "onOpen": "openBrowser"      // opens your default browser to the public URL
+    },
+    "3333": {
+      "visibility": "public"
+    }
+  }
+}
