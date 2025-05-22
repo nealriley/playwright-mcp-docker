@@ -3,10 +3,7 @@
   "name": "PlayWright MCP Docker",
 
   // 1) Build the codespace container from your repo's Dockerfile
-  "build": {
-    "dockerfile": "../Dockerfile",
-    "context": ".."
-  },
+  "image": "mcr.microsoft.com/devcontainers/universal:linux",
 
   // 2) After the container is created, build your app image
   "postCreateCommand": "docker build -t myapp-image ..",
